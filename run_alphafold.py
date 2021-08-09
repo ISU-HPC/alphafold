@@ -35,6 +35,10 @@ from alphafold.relax import relax
 import numpy as np
 # Internal import (7716).
 
+# Let's set a tmpdir if not set
+if not os.getenv('TMPDIR'):
+   os.environ['TMPDIR'] = '/tmp'
+
 flags.DEFINE_list('fasta_paths', None, 'Paths to FASTA files, each containing '
                   'one sequence. Paths should be separated by commas. '
                   'All FASTA paths must have a unique basename as the '
